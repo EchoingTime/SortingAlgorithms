@@ -1,0 +1,5 @@
+PDF file's Big O formating has been ruined and 
+Heap sorting does not sort all the way. The "SortingBigO.jpg" shows the correct
+Big O notations as the original source of the "Sorters Project.pdf" has been lost. 
+Added Validation method, everything works as intended except for heap sort.
+References were used to help with some of the sorters. 
