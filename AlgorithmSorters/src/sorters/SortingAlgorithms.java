@@ -12,11 +12,12 @@ import java.util.Random;
  * https://www.youtube.com/watch?v=t0Cq6tVNRBA&t=295s&ab_channel=HackerRank
  * https://www.educative.io/answers/how-to-build-a-heap-from-an-array
  * https://www.baeldung.com/java-quicksort#:~:text=We%20choose%20an%20element%20from,is%20in%20its%20final%20position.
+ * @NOTE - Heap sort does not work all the way
  */
 public class SortingAlgorithms 
 {
 	private int loopCount; // Used in the bubble sorting methods
-	private int sizeOfArray;
+	private int sizeOfArray; 
 	
 	/**
 	 * SortingAlgorithms Constructor - Initializes loopCount to zero
@@ -458,6 +459,80 @@ public class SortingAlgorithms
 		}
 		
 		return array;
+	}
+	
+	/**
+	 * validate Method - Validates if array was sorted correctly
+	 * @param array - An array of integers
+	 * @return true if sorted, else false
+	 */
+	public boolean validate (int [] array)
+	{
+		boolean checking; 
+		int checkNext;
+		checkNext = 1;
+
+		for (int i = 0; i < array.length; i++)
+		{
+			for (int j = checkNext; j < array.length; j++)
+			{
+				if (j != i)
+				{
+					checking = true;
+					while (checking)
+					{
+						if (array[i] <= array[j])
+						{
+							checking = false;
+							j = array.length;
+							checkNext++;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * validateArrayList Method - Validates if ArrayList was sorted correctly
+	 * @param array - An ArrayList of integers
+	 * @return true if sorted, else false
+	 */
+	public boolean validate (ArrayList<Integer> array)
+	{
+		boolean checking; 
+		int checkNext;
+		checkNext = 1;
+
+		for (int i = 0; i < array.size(); i++)
+		{
+			for (int j = checkNext; j < array.size(); j++)
+			{
+				if (j != i)
+				{
+					checking = true;
+					while (checking)
+					{
+						if (array.get(i) <= array.get(j))
+						{
+							checking = false;
+							j = array.size();
+							checkNext++;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}
+		}
+		return true;
 	}
 	
 	/**
